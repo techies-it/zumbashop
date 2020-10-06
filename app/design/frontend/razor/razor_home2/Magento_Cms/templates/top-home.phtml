@@ -1,0 +1,286 @@
+<style>
+    @media (min-width: 1024px) {
+   .homedynamic3 .product-item {
+        width:calc((100% - 8%)/3)!important;
+    }
+
+    .homestaticprod2 .product-item {
+        width:calc((100% - 8%)/2)!important;
+    }
+   .homedynamic3 .product-item-actions {
+        display: none;
+    }
+
+   .homedynamic3 .product-item-details {
+    text-align:center
+    }
+
+   .homestaticprod2 .product-item-actions {
+        display: none;
+    }
+
+   .homestaticprod2 .product-item-details {
+    text-align:center
+    }
+    
+    .homeoutlet .product-item {
+        width:calc((100% - 8%)/4)!important;
+    }
+
+    .homeoutelt .product-item {
+        width:calc((100% - 8%)/4)!important;
+    }
+    
+    .pre-ftr-frst img{
+    width:100%
+    }
+
+    .pre-ftr-sec img{
+    width:100%
+    }
+
+    .pre-ftr-thrd img{
+    width:100%
+    }
+    
+
+.homebundle img{
+    max-height:850px!important;
+}
+.row.homeoutlet {
+    padding:0 120px;
+}
+
+.row.pre-ftr {
+    padding:0 120px;
+}
+
+}
+.homeoutlet .product-item-actions {
+        display: none;
+    }
+
+   .homeoutlet .product-item-details {
+    text-align:center
+    }
+
+.homedynamic3 .product-item-actions {
+        display: none;
+    }
+
+   .homedynamic3 .product-item-details {
+    text-align:center
+    }
+    
+    .homestaticprod2 .product-item-actions {
+        display: none;
+    }
+    
+    .homestaticprod2 .product-item-details {
+    text-align:center
+    }
+    
+    .homedynamic3mobile .product-item-details {
+    text-align:center
+    }
+    
+    .homedynamic3mobile .product-item-actions {
+        display: none;
+    }
+
+    .titlehome {
+    background:url(https://testmagento.pcinfoserver.gr/pub/media/wysiwyg/grey-pattern.png) repeat;
+    padding: 1em 0 1em;
+    font-size: 2.5rem;
+    color:black;
+    font-weight:600
+}
+
+
+@media only screen and (min-width: 768px) {
+.homedynamic3mobile {
+    display:none;
+}
+}
+
+
+@media only screen and (max-width: 768px) {
+.row.full-content {
+     padding: 0 0px; 
+}
+
+.homedynamic3 {
+    display:none;
+}
+
+.srch {
+    margin-bottom: 35px;
+}
+
+.homebundle img{
+    max-height:410px!important;
+}
+.pre-ftr-sec img{
+    width:288px;
+}
+}
+
+.ves-megamenu li.active>a {
+    color: #D43361 !important;
+}
+
+
+
+</style>
+
+<div class="top-home-content">
+	<div class="container-fluid">
+		
+	<div class="row titlehome">
+	    <div class="col-md-12">
+	        <div class="titlehome">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('titlehome')->toHtml();?>
+		    </div>
+	    </div>
+	</div>	
+
+<div class="row full-content">
+      <div class="col-md-3"> <div class="homesidebar">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('sidebar')->toHtml();?>
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('sidebar_en')->toHtml();?>
+		</div></div>
+      <div class="col-md-9">    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="homedynamic3">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('be_items')->toHtml();?>
+		</div>
+		 <div class="homedynamic3mobile">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('be_items2')->toHtml();?>
+		</div>
+
+		
+		
+		
+		</div>
+		</div>
+
+        <div class="row">
+            <div class="col-md-4"><div class="homebundle">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('homebundle')->toHtml();?>
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('homebundle_en')->toHtml();?>
+		</div></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12"><div class="homestaticprod2">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('1static')->toHtml();?>
+		</div></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><div class="homestaticprod2">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('2static')->toHtml();?>
+		</div></div>
+                    
+                </div>
+            </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    
+	<div class="container">
+	    <div class="row homeoutlet">
+	        <div class="col-md-12">
+	            <div class="homeoutlet">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('outlet')->toHtml();?>
+	        </div>
+	    </div> </div>
+	     <div class="row homeoutlet">
+	        <div class="col-md-12">
+	            <div class="homeoutelt">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('outlet1')->toHtml();?>
+	        </div>
+	    </div>
+    </div>
+    
+  </div>
+  
+  
+  <div class="row pre-ftr">
+      <div class="col-sm-3">
+          <div class="pre-ftr-frst">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('pre-ftr-frst')->toHtml();?>
+          </div></div>	
+      <div class="col-sm-6">
+          <div class="pre-ftr-sec">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('pre-ftr-sec')->toHtml();?>
+          </div></div>
+
+      <div class="col-sm-3">
+          <div class="pre-ftr-thrd">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('pre-ftr-thrd')->toHtml();?>
+          </div></div>	
+  </div>
+            
+          <div class="mob-pre-ftr">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('mob-pre-ftr')->toHtml();?>
+          </div>
+  
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="text-pre-footer">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('text-pre-footer')->toHtml();?>
+	</div>
+	    </div>
+	
+
+
+
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+require([
+		'jquery',
+		'mage/mage',
+		'rokanthemes/owl'
+	], function ($) {
+		'use strict';
+	$( document ).ready(function() {
+		$("ul.tabs li").click(function() {
+			$(this).closest("ul").find("li").removeClass("active");
+			$(this).addClass("active");
+			$(this).closest(".common-tab-system-fixed").find(".tab_content").hide();
+			$(this).closest(".common-tab-system-fixed").find(".tab_content").removeClass("animate1");
+			var activeTab = $(this).attr("rel");
+			$("#"+activeTab) .addClass("animate1");
+			$("#"+activeTab).fadeIn();
+		});
+		//Close Service Box
+		$('.close-service-box').on('click',function(event) {
+			event.preventDefault();
+			$('.banner-top-home').slideUp('slow');
+		});
+		
+		if($('.category-brand-slider').length>0){
+			$('.category-brand-slider').each(function(){
+			  $(this).find('.wrap-item').owlCarousel({
+				items: 1,
+				itemsCustom: [
+				[0, 2],
+				[480, 2],
+				[768, 1],
+				[992, 1],
+				[1200, 1]
+				],
+				pagination: false,
+				navigation: true,
+				autoPlay:true,
+				navigationText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
+			  });
+			});
+		}
+	});
+});
+</script>

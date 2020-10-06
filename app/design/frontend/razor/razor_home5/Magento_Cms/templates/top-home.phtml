@@ -1,0 +1,86 @@
+<div class="top-home-content">
+	<div class="container">
+		<?php  echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('block_top')->toHtml(); ?>
+		<div class="banner_top_home5">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner_top_5')->toHtml();?>
+		</div>
+		<div class="hot_deal_h5">
+			<span class="proDealTitle">                     
+                <span> Daily Deal</span>
+            </span>
+			<div class="row">
+				<div class="col-md-9 col-sm-12 col-xs-12">
+					<div class="hot-deal">
+						<?php echo $block->getLayout()->createBlock('Rokanthemes\Superdeals\Block\ProductByCat')->setTemplate('Rokanthemes_Superdeals::category.phtml')->toHtml();?>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="new_product">
+						<?php echo $block->getLayout()->createBlock('Rokanthemes\Newproduct\Block\Newproduct')->setTemplate('Rokanthemes_Newproduct::newproduct.phtml')->toHtml();?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrapper-bestseller cat cat5">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category1_home5')->toHtml();?>
+		</div>
+		<div class="wrapper-bestseller cat cat5">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category2_home5')->toHtml();?>
+		</div>
+		<div class="wrapper-bestseller cat cat5">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category3_home5')->toHtml();?>
+		</div>
+		<div class="wrapper-bestseller cat cat5">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category4_home5')->toHtml();?>
+		</div> 
+		<div class="banner_bottom_home5">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner_bottom_5')->toHtml();?>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+require([
+		'jquery',
+		'mage/mage',
+		'rokanthemes/owl'
+	], function ($) {
+		'use strict';
+	$( document ).ready(function() {
+		$("ul.tabs li").click(function() {
+			$(this).closest("ul").find("li").removeClass("active");
+			$(this).addClass("active");
+			$(this).closest(".common-tab-system-fixed").find(".tab_content").hide();
+			$(this).closest(".common-tab-system-fixed").find(".tab_content").removeClass("animate1");
+			var activeTab = $(this).attr("rel");
+			$("#"+activeTab) .addClass("animate1");
+			$("#"+activeTab).fadeIn();
+		});
+		//Close Service Box
+		$('.close-service-box').on('click',function(event) {
+			event.preventDefault();
+			$('.banner-top-home').slideUp('slow');
+		});
+		
+		
+		if($('.category-brand-slider').length>0){
+			$('.category-brand-slider').each(function(){
+			  $(this).find('.wrap-item').owlCarousel({
+				items: 1,
+				itemsCustom: [
+				[0, 2],
+				[480, 2],
+				[768, 1],
+				[992, 1],
+				[1200, 1]
+				],
+				pagination: false,
+				navigation: true,
+				autoPlay:true,
+				navigationText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
+			  });
+			});
+		}
+	});
+});
+</script>

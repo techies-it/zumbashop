@@ -1,0 +1,95 @@
+<div class="top-home-content">
+	<div class="container">
+		<div class="row">
+			 <div class="col-lg-2 col-md-3 hide-sm">
+			 </div>
+			<div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
+				<div class="banner-slider-top">
+					<div class="banner-slider banner-slider1">
+						<?php echo $this->getLayout()->createBlock('Rokanthemes\SlideBanner\Block\Slider')->setslider_id('homepage4slider')->toHtml(); ?>
+					</div>
+				 </div>
+				<?php  echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('block_top')->toHtml(); ?>
+			</div>
+		</div>
+	</div>
+
+	<div  class="container">
+		<div class="banner_top_home4">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner_top_4')->toHtml();?>
+		</div>
+	</div>
+</div>
+<div class="category-home4">
+	<div class="top-home-content">
+		<div class="container">
+			<div class="wrapper-bestseller cat">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category1_home4')->toHtml();?>
+			</div>
+			<div class="wrapper-bestseller cat">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category2_home4')->toHtml();?>
+			</div>
+			<div class="wrapper-bestseller cat">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category3_home4')->toHtml();?>
+			</div>
+			<div class="wrapper-bestseller cat">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category4_home4')->toHtml();?>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="top-home-content">
+	<div class="container">
+		<div class="the_blog">
+			<?php echo $block->getLayout()->createBlock('Rokanthemes\Blog\Block\Sidebar\Recent')->setTemplate('Rokanthemes_Blog::sidebar/slider.phtml')->toHtml();?>
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+require([
+		'jquery',
+		'mage/mage',
+		'rokanthemes/owl'
+	], function ($) {
+		'use strict';
+	$( document ).ready(function() {
+		$("ul.tabs li").click(function() {
+			$(this).closest("ul").find("li").removeClass("active");
+			$(this).addClass("active");
+			$(this).closest(".common-tab-system-fixed").find(".tab_content").hide();
+			$(this).closest(".common-tab-system-fixed").find(".tab_content").removeClass("animate1");
+			var activeTab = $(this).attr("rel");
+			$("#"+activeTab) .addClass("animate1");
+			$("#"+activeTab).fadeIn();
+		});
+		//Close Service Box
+		$('.close-service-box').on('click',function(event) {
+			event.preventDefault();
+			$('.banner-top-home').slideUp('slow');
+		});
+		
+		
+		if($('.category-brand-slider').length>0){
+			$('.category-brand-slider').each(function(){
+			  $(this).find('.wrap-item').owlCarousel({
+				items: 1,
+				itemsCustom: [
+				[0, 2],
+				[480, 2],
+				[768, 1],
+				[992, 1],
+				[1200, 1]
+				],
+				pagination: false,
+				navigation: true,
+				autoPlay:true,
+				navigationText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
+			  });
+			});
+		}
+	});
+});
+</script>

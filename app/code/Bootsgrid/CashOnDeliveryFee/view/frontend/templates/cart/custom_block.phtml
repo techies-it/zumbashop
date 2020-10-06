@@ -1,0 +1,93 @@
+<div id="block-cod" class="block shipping" data-mage-init='{"collapsible":{"openedState": "active", "saveState": true}}'  onclick="checkZipCode()">
+
+    <div class="title" data-role="title">
+        <strong id="block-cod-heading" role="heading" aria-level="2">
+            <?php /* @escapeNotVerified */ echo 'Check Cash on Delivery Availability for Your ZIP' ?>
+        </strong>
+    </div>
+ </div>
+    <div id="checkCode">
+    <form class="form-product-postcode" method="post" id="form-product-postcode" novalidate="novalidate">
+	    <div class="message"></div>
+	    <div class="content custom-class" data-role="content" >
+		    <input type="text" class="input-text custom-input-text" placeholder="<?php echo __('Enter delivery zipcode') ?>" name="postcode" id="postcode" title="<?php echo __('Postcode') ?>">   
+		    <button type="button" class="action primary" title="Check" id="button-postcode-check">Check</button>
+		    <div class="emptycode"></div>
+	    </div>
+    </form>
+    </div>
+<script type="text/javascript">
+require([
+	'jquery',
+	'mage/mage'
+], function ($) { 
+	var dataForm = $('#form-product-postcode');
+	dataForm.mage('validation', {});
+	var dataFormMessage = $('#form-product-postcode .message');
+	dataFormMessage.removeClass('success').removeClass('error').hide();
+	$('#button-postcode-check').on('click',function () {
+		var formData = new FormData();
+		var zipcode = $('#form-product-postcode input[name="postcode"]').val();
+		formData.append('postcode', zipcode );
+		if(zipcode == '')
+		{
+			var emptyCode = 'Please enter zipcode.';
+			  $('.emptycode').empty().append(emptyCode);	
+		}
+		else
+		{
+			$.ajax({
+				url: '<?php echo $this->getUrl('cashondeliveryfee/postcode/check') ?>',
+				data: formData,
+				processData: false,
+				contentType: false,
+				showLoader: true,
+				type: 'POST',
+				dataType: 'json',
+				success: function (response) {
+					console.log(response);
+					$('.emptycode').css('display', 'none');
+					dataFormMessage.removeClass('success').removeClass('error').hide();
+					dataFormMessage.addClass(response.type).html(response.message).show();
+				}
+			});
+	    }
+		 return false;
+	});
+});
+function checkZipCode() {
+  var show = document.getElementById("checkCode");
+  if (show.style.display === "none") {
+    show.style.display = "block";
+  } else {
+    show.style.display = "none";
+  }
+}
+</script>
+<style type="text/css">
+	.custom-input-text
+	{
+		width:unset !important;
+	}
+	.action.primary 
+	{
+	  margin-left:10px;
+      padding: 6.5px 15px;
+      vertical-align: top !important;
+     }
+     /*.action.primary:hover 
+	{
+	  background: #fff;
+	  color:#1979c3;
+	  border: 1px solid #1979c3;
+    }*/
+    .custom-size
+    {
+    	font-size:16px !important;
+    }
+    .emptycode
+    {
+      color:#ff0000;
+      line-height: 2;
+    }
+</style>

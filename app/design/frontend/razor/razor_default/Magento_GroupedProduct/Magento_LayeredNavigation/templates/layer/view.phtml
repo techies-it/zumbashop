@@ -1,0 +1,29 @@
+<?php if ($block->canShowBlock()): ?>
+    <div class="block filter" id="layered-ajax-filter-block">
+		<div class="block-content filter-content sidebar-shop sidebar-left">
+            <?php if ($block->getLayer()->getState()->getFilters()): ?>
+				<div class="widget">
+					<?php echo $block->getChildHtml('state') ?>
+					<div class="block-actions filter-actions">
+						<a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+					</div>
+				</div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $key => $filter): ?>
+                <?php if ($filter->getItemsCount()): ?>
+                    <?php if (!$wrapOptions): ?>
+                       <div class="filter-options widget widget-filter" id="narrow-by-list" data-role="content" data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": [0,1,2,3,4,5,6,7,8,9,10], "multipleCollapsible": true}}'>
+                    <?php  $wrapOptions = true; endif; ?>
+                    <div data-role="collapsible" class="filter-options-item">
+                        <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
+                        <div data-role="content" class="filter-options-content"><?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?></div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions): ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,91 @@
+<div class="top-home-content">
+	<div class="container">
+		<div class="banner-slider-top3">
+			<div class="row">
+				<div class="col-xs-12 col-sm-8">
+					<div class="banner-slider banner-slider3">
+						<?php echo $this->getLayout()->createBlock('Rokanthemes\SlideBanner\Block\Slider')->setslider_id('homepage3slider')->toHtml(); ?>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<div>
+						<div class="list-ads1">
+							<?php  echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('list_ads3')->toHtml(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		 </div>
+		<?php  echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('block_top')->toHtml(); ?>
+		<div class="wrapper-bestseller cat hide_tab">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category1_home1')->toHtml();?>
+		</div>
+		<div class="wrapper-bestseller rokan_featuredproduct">
+			<?php echo $block->getLayout()->createBlock('Rokanthemes\Featuredpro\Block\Featured')->setTemplate('Rokanthemes_Featuredpro::featured.phtml')->toHtml();?>
+		</div>
+		<div class="banner_mid_h2">
+				<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner_mid2_home2')->toHtml();?>
+		</div>
+		<div class="wrapper-bestseller cat">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category3_home1')->toHtml();?>
+		</div>
+		<div class="wrapper-bestseller cat">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category2_home1')->toHtml();?>
+		</div>
+		<div class="banner_mid_h2">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner_mid3_home2')->toHtml();?>
+		</div>
+		<div class="section-featured-categories">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('featured_categories')->toHtml(); ?>
+		</div>
+
+		<div class="wrapper-bestseller cat2b">
+			<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('category4_home1')->toHtml();?>
+		</div>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+require([
+		'jquery',
+		'mage/mage',
+		'rokanthemes/owl'
+	], function ($) {
+		'use strict';
+	$( document ).ready(function() {
+		$("ul.tabs li").click(function() {
+			$(this).closest("ul").find("li").removeClass("active");
+			$(this).addClass("active");
+			$(this).closest(".common-tab-system-fixed").find(".tab_content").hide();
+			$(this).closest(".common-tab-system-fixed").find(".tab_content").removeClass("animate1");
+			var activeTab = $(this).attr("rel");
+			$("#"+activeTab) .addClass("animate1");
+			$("#"+activeTab).fadeIn();
+		});
+		//Close Service Box
+		$('.close-service-box').on('click',function(event) {
+			event.preventDefault();
+			$('.banner-top-home').slideUp('slow');
+		});
+		if($('.category-brand-slider').length>0){
+			$('.category-brand-slider').each(function(){
+			  $(this).find('.wrap-item').owlCarousel({
+				items: 1,
+				itemsCustom: [
+				[0, 2],
+				[480, 2],
+				[768, 1],
+				[992, 1],
+				[1200, 1]
+				],
+				pagination: false,
+				navigation: true,
+				autoPlay:true,
+				navigationText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
+			  });
+			});
+		}
+	});
+});
+</script>
